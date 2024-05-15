@@ -15,6 +15,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,13 +37,24 @@ fun HoroscopeScreen(
         modifier = modifier
             .fillMaxSize()
     ) {
-        LazyVerticalGrid(columns = GridCells.Fixed(2)) {
-            state.horoscopeInfoList.forEach {
-                item {
-                    HoroscopeItem(info = it)
+        if(state.isLoading){
+            CircularProgressIndicator(
+                color = Color.Red,
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }else{
+
+            LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+                state.horoscopeInfoList.forEach {
+                    item {
+                        HoroscopeItem(info = it)
+                    }
                 }
             }
+
         }
+
+
     }
 }
 
@@ -54,13 +67,13 @@ fun HoroscopeItem(info: HoroscopeInfo) {
         modifier = Modifier
             .padding(16.dp),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = Color.White)
+        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.tertiaryContainer)
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(Color.Black)
+                .background(MaterialTheme.colorScheme.primary)
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
@@ -75,13 +88,15 @@ fun HoroscopeItem(info: HoroscopeInfo) {
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun HoroscopePreview() {
 
     HoroscopeScreen(
-        modifier = Modifier.background(Color.Blue),
+        modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer),
         state = HoroscopeState(
+            isLoading = false,
+            horoscopeInfoList =
             listOf(
                 HoroscopeInfo.Aries,
                 HoroscopeInfo.Taurus,
