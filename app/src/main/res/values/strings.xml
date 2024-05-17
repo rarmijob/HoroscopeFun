@@ -15,4 +15,10 @@
     <string name="capricorn">Capricorn</string>
     <string name="aquarius">Aquarius</string>
     <string name="pisces">Pisces</string>
+
+
+    <!--    Nav-->
+    <string name="HoroscopeItemNav">Horoscope</string>
+
+
 </resources>

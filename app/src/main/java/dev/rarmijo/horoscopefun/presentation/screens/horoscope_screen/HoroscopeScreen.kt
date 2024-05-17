@@ -3,6 +3,7 @@ package dev.rarmijo.horoscopefun.presentation.screens.horoscope_screen
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,8 +23,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
@@ -32,59 +33,60 @@ import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
 fun HoroscopeScreen(
     modifier: Modifier = Modifier,
     state: HoroscopeState,
+    navToDetail: (HoroscopeInfo) -> Unit
 ) {
     Box(
         modifier = modifier
             .fillMaxSize()
     ) {
-        if(state.isLoading){
+        if (state.isLoading) {
             CircularProgressIndicator(
                 color = Color.Red,
                 modifier = Modifier.align(Alignment.Center)
             )
-        }else{
-
+        } else {
             LazyVerticalGrid(columns = GridCells.Fixed(2)) {
                 state.horoscopeInfoList.forEach {
                     item {
-                        HoroscopeItem(info = it)
+                        HoroscopeItem(info = it, navToDetail = navToDetail)
                     }
                 }
             }
-
         }
-
-
     }
 }
 
 @Composable
-fun HoroscopeItem(info: HoroscopeInfo) {
-
-    val name = LocalContext.current.resources.getString(info.name)
+fun HoroscopeItem(
+    info: HoroscopeInfo,
+    navToDetail: (HoroscopeInfo) -> Unit
+) {
+    //val name = LocalContext.current.resources.getString(info.name)
+    val name = stringResource(id = info.name)
 
     Card(
         modifier = Modifier
+            .clickable { navToDetail(info) }
             .padding(16.dp),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.tertiaryContainer)
+        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline)
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.primary)
+                //.background(MaterialTheme.colorScheme.primary)
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Text(text = name, color = Color.White)
+            Text(
+                text = name, style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            Image(painter = painterResource(id = info.img), contentDescription = name)
+            Image(painter = painterResource(id = info.icon), contentDescription = name)
         }
-
     }
-
-
 }
 
 
@@ -111,8 +113,7 @@ private fun HoroscopePreview() {
                 HoroscopeInfo.Aquarius,
                 HoroscopeInfo.Pisces
             )
-        )
+        ),
+        navToDetail = {}
     )
-
-
 }
