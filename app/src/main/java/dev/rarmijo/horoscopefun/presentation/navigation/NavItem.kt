@@ -26,6 +26,7 @@ sealed class NavItem(
         fun createNavRoute(horoscopeSignName: String) = "$baseRoute/$horoscopeSignName"
     }
     data object Luck: NavItem("luck")
+    data object Palmistry: NavItem("palmistry")
 
 
 }

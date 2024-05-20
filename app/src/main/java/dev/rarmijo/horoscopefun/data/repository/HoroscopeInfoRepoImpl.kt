@@ -10,5 +10,4 @@ class HoroscopeInfoRepoImpl @Inject constructor(
 ) : HoroscopeInfoRepo {
     override fun getHoroscope(): List<HoroscopeInfo> = provider.getHoroscopes()
 
-
 }

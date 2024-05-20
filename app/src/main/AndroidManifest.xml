@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--    Internet permission required-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="dev.rarmijo.horoscopefun.HoroscopeFunApp"
         android:allowBackup="true"
@@ -16,7 +19,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.HoroscopeFun">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -69,6 +69,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
     // ViewModel
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
    //implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
@@ -84,6 +87,17 @@ dependencies {
     //materials icons extended
     implementation (libs.androidx.material.icons.extended)
 
+    //retrofit
+    implementation(libs.squareup.retrofit2)
+    //retrofit moshi converter
+    implementation(libs.squareup.retrofit2.converter.moshi)
+
+
+
+    //moshi kotlin
+    //implementation(libs.squareup.moshi.kotlin)
+    //moshi codegen
+    kapt(libs.squareup.moshi.kotlin.codegen)
 }
 
 kapt {

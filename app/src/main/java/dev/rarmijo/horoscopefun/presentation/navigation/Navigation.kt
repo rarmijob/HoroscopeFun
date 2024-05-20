@@ -74,7 +74,7 @@ fun Navigation(modifier: Modifier) {
                 }
             }
 
-        }
+        },
     )
 
 

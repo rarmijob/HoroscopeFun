@@ -6,14 +6,14 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.rarmijo.horoscopefun.domain.repository.HoroscopeInfoRepo
+import dev.rarmijo.horoscopefun.domain.usecases.GetHoroscopeUseCase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HoroscopeViewModel @Inject constructor(
-    private val repository: HoroscopeInfoRepo
+    private val getHoroscopeUseCase: GetHoroscopeUseCase
 ): ViewModel() {
 
     var state by mutableStateOf(HoroscopeState())
@@ -28,7 +28,7 @@ class HoroscopeViewModel @Inject constructor(
     }
 
     private fun loadHoroscope() {
-        val listHoroscope = repository.getHoroscope()
+        val listHoroscope = getHoroscopeUseCase()
         state = state.copy(horoscopeInfoList = listHoroscope, isLoading = false)
     }
 }

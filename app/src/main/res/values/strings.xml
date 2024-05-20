@@ -19,6 +19,10 @@
 
     <!--    Nav-->
     <string name="HoroscopeItemNav">Horoscope</string>
+    <string name="luckItemNav">Luck</string>
+    <string name="palmistryItemNav">Palmistry</string>
+
+
 
 
 </resources>

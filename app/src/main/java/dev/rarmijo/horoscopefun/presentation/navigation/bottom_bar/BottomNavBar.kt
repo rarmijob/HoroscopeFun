@@ -1,5 +1,6 @@
 package dev.rarmijo.horoscopefun.presentation.navigation.bottom_bar
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -7,7 +8,10 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun BottomNavBar(
@@ -16,7 +20,9 @@ fun BottomNavBar(
 ) {
 
     val bottomNavItems = listOf(
-        BottomNavItem.Horoscope
+        BottomNavItem.Horoscope,
+        BottomNavItem.Luck,
+        BottomNavItem.Palmistry
     )
 
 
@@ -28,10 +34,16 @@ fun BottomNavBar(
                     Text(text = title, style = MaterialTheme.typography.labelSmall)
                 },
                 icon = {
+                    //TODO failing with detail route, improve logic
                     if (it.route == currentRoute)
-                        Icon(imageVector = it.iconSelected, contentDescription = title)
+                        Icon(painter = painterResource(id = it.icon), contentDescription = title, modifier = Modifier.size(24.dp))
                     else
-                        Icon(imageVector = it.iconUnselected, contentDescription = title)
+                        Icon(
+                            painter = painterResource(id = it.icon),
+                            contentDescription = title,
+                            tint = MaterialTheme.colorScheme.outline,
+                            modifier = Modifier.size(24.dp)
+                        )
                 },
                 selected = it.route == currentRoute,
                 // selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
