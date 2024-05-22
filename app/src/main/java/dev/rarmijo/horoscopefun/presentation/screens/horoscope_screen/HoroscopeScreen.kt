@@ -22,12 +22,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
+import dev.rarmijo.horoscopefun.ui.theme.BlackSmoke
+import dev.rarmijo.horoscopefun.ui.theme.BlackerSmoke
+import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
+import dev.rarmijo.horoscopefun.ui.theme.Red
+import dev.rarmijo.horoscopefun.ui.theme.White
 
 @Composable
 fun HoroscopeScreen(
@@ -38,10 +42,11 @@ fun HoroscopeScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
+            .background(BlackSmoke)
     ) {
         if (state.isLoading) {
             CircularProgressIndicator(
-                color = Color.Red,
+                color = Red,
                 modifier = Modifier.align(Alignment.Center)
             )
         } else {
@@ -69,19 +74,19 @@ fun HoroscopeItem(
             .clickable { navToDetail(info) }
             .padding(16.dp),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline)
+        border = BorderStroke(width = 1.dp, color = OrangeMystic)
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                //.background(MaterialTheme.colorScheme.primary)
+                .background(BlackerSmoke)
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
             Text(
                 text = name, style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
+                color = White
             )
             Spacer(modifier = Modifier.height(16.dp))
             Image(painter = painterResource(id = info.icon), contentDescription = name)
@@ -95,7 +100,7 @@ fun HoroscopeItem(
 private fun HoroscopePreview() {
 
     HoroscopeScreen(
-        modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer),
+        modifier = Modifier,
         state = HoroscopeState(
             isLoading = false,
             horoscopeInfoList =

@@ -18,11 +18,10 @@ sealed class BottomNavItem(
 
         )
 
-
     data object Luck :
         BottomNavItem(
             title = R.string.luckItemNav,
-            route = NavItem.Horoscope.baseRoute,
+            route = NavItem.Luck.baseRoute,
             icon = R.drawable.ic_cards,
 
         )
@@ -30,7 +29,7 @@ sealed class BottomNavItem(
     data object Palmistry :
         BottomNavItem(
             title = R.string.palmistryItemNav,
-            route = NavItem.Horoscope.baseRoute,
+            route = NavItem.Palmistry.baseRoute,
             icon = R.drawable.ic_hand,
 
         )
