@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -64,9 +65,8 @@ fun HoroscopeScreen(
 @Composable
 fun HoroscopeItem(
     info: HoroscopeInfo,
-    navToDetail: (HoroscopeInfo) -> Unit
+    navToDetail: (HoroscopeInfo) -> Unit,
 ) {
-    //val name = LocalContext.current.resources.getString(info.name)
     val name = stringResource(id = info.name)
 
     Card(
@@ -86,10 +86,13 @@ fun HoroscopeItem(
         ) {
             Text(
                 text = name, style = MaterialTheme.typography.titleLarge,
-                color = White
+                color = OrangeMystic
             )
             Spacer(modifier = Modifier.height(16.dp))
-            Image(painter = painterResource(id = info.icon), contentDescription = name)
+            Image(
+                painter = painterResource(id = info.icon),
+                contentDescription = name,
+            )
         }
     }
 }

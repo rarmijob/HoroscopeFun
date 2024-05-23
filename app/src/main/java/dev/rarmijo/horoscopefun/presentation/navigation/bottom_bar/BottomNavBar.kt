@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import dev.rarmijo.horoscopefun.ui.theme.BlackerSmoke
 import dev.rarmijo.horoscopefun.ui.theme.Gray
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
+import dev.rarmijo.horoscopefun.ui.theme.Transparent
 import dev.rarmijo.horoscopefun.ui.theme.White
 
 @Composable
@@ -75,13 +76,13 @@ fun BottomNavBar(
                 },
                 // Control all the colors of the icon
                 colors = NavigationBarItemColors(
-                    selectedIconColor = BlackerSmoke,
-                    selectedTextColor = White,
-                    unselectedIconColor = OrangeMystic,
-                    unselectedTextColor = OrangeMystic,
+                    selectedIconColor = OrangeMystic,
+                    selectedTextColor = OrangeMystic,
+                    unselectedIconColor = White,
+                    unselectedTextColor = White,
                     disabledIconColor = Gray,
                     disabledTextColor = Gray,
-                    selectedIndicatorColor = White,
+                    selectedIndicatorColor = Transparent,
                 )
             )
         }

@@ -21,7 +21,7 @@ sealed class BottomNavItem(
     data object Luck :
         BottomNavItem(
             title = R.string.luckItemNav,
-            route = NavItem.Luck.baseRoute,
+            route = NavItem.Roulette.baseRoute,
             icon = R.drawable.ic_cards,
 
         )

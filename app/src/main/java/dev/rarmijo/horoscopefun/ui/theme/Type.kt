@@ -7,7 +7,9 @@ import androidx.compose.ui.text.font.FontFamily
 import dev.rarmijo.horoscopefun.R
 
 
-val bodyFontFamily = FontFamily.Default
+val bodyFontFamily = FontFamily(Font(R.font.dancing_script_variable))
+
+    //FontFamily.Default
     //FontFamily(Font(R.font.lora_variable))
 
 

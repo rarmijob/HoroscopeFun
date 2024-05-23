@@ -2,14 +2,14 @@ package dev.rarmijo.horoscopefun.presentation.navigation
 
 import androidx.compose.foundation.layout.Box
 
+import androidx.compose.foundation.layout.fillMaxWidth
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -29,6 +29,7 @@ import dev.rarmijo.horoscopefun.presentation.screens.horoscope_screen.HoroscopeS
 import dev.rarmijo.horoscopefun.presentation.screens.horoscope_screen.HoroscopeViewModel
 import dev.rarmijo.horoscopefun.presentation.screens.luck_screen.LuckScreen
 import dev.rarmijo.horoscopefun.presentation.screens.luck_screen.LuckViewModel
+import dev.rarmijo.horoscopefun.presentation.screens.roulette_screen.RouletteScreen
 import dev.rarmijo.horoscopefun.ui.theme.Black
 import dev.rarmijo.horoscopefun.ui.theme.BlackerSmoke
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
@@ -40,12 +41,20 @@ fun Navigation(modifier: Modifier) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
+    val bottomBarVisible = when (navBackStackEntry?.destination?.route) {
+        NavItem.Detail.route, NavItem.Luck.route-> false
+        else -> true
+    }
+
     Scaffold(
 
         topBar = {
             MediumTopAppBar(
                 title = {
-                    Text(text = "Horoscope Fun", color = OrangeMystic)
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(text = "Horoscope Fun", color = OrangeMystic)
+                    }
+
                 },
                 colors = TopAppBarColors(
                     containerColor = BlackerSmoke,
@@ -53,34 +62,33 @@ fun Navigation(modifier: Modifier) {
                     navigationIconContentColor = Black,
                     actionIconContentColor = Black,
                     scrolledContainerColor = Black
-                )
-
-
+                ),
+                modifier = Modifier.fillMaxWidth()
             )
-
         },
-
 
         bottomBar = {
-            val currentRoute = navBackStackEntry?.destination?.route
-            BottomNavBar(currentRoute) {
-                navController.navigate(it) {
-                    // Pop up to the start destination of the graph to
-                    // avoid building up a large stack of destinations
-                    // on the back stack as users select items
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
+            if(true) {
+                val currentRoute = navBackStackEntry?.destination?.route
+                BottomNavBar(currentRoute) {
+                    navController.navigate(it) {
+                        // Pop up to the start destination of the graph to
+                        // avoid building up a large stack of destinations
+                        // on the back stack as users select items
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        // Avoid multiple copies of the same destination when
+                        // reselecting the same item
+                        launchSingleTop = true
+                        // Restore state when reselecting a previously selected item
+                        restoreState = true
                     }
-                    // Avoid multiple copies of the same destination when
-                    // reselecting the same item
-                    launchSingleTop = true
-                    // Restore state when reselecting a previously selected item
-                    restoreState = true
                 }
             }
-
         },
-        content = {
+
+        content = { it ->
             NavHost(
                 navController = navController,
                 startDestination = NavItem.Horoscope.route,
@@ -104,21 +112,30 @@ fun Navigation(modifier: Modifier) {
                     DetailScreen(
                         modifier = modifier,
                         state = state,
-
-                        )
+                        navBack = {
+                            //navController.popBackStack()
+                            navController.navigate(NavItem.Horoscope.route)
+                        }
+                    )
                 }
 
                 composable(NavItem.Luck) {
-
                     val vm: LuckViewModel = hiltViewModel()
                     val state = vm.state
-                    LuckScreen(state = state)
+                    LuckScreen(state = state, navBack = {
+                        //navController.popBackStack()
+                        navController.navigate(NavItem.Roulette.route)
+                    })
+                }
+
+                composable(NavItem.Roulette) {
+                    RouletteScreen(navToLuck = {
+                        navController.navigate(NavItem.Luck.route)
+                    })
                 }
             }
-
         },
     )
-
 
 }
 
