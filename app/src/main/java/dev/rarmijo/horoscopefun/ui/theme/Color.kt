@@ -1,6 +1,29 @@
 package dev.rarmijo.horoscopefun.ui.theme
 import androidx.compose.ui.graphics.Color
 
+
+val Black = Color(0xFF000000)
+val BlackSmoke = Color(0xFF1F1F1F)
+val BlackerSmoke = Color(0xFF181818)
+
+val DarkGray = Color(0xFF444444)
+val Gray = Color(0xFF888888)
+val LightGray = Color(0xFFCCCCCC)
+val White = Color(0xFFFFFFFF)
+val Red = Color(0xFFFF0000)
+val Green = Color(0xFF00FF00)
+val Green2 = Color(0xFF008000)
+val Blue = Color(0xFF0000FF)
+val Yellow = Color(0xFFFFFF00)
+val Cyan = Color(0xFF00FFFF)
+val Magenta = Color(0xFFFF00FF)
+val Transparent = Color(0x00000000)
+
+val OrangeMystic = Color(0xFFEE9361)
+val YellowGold = Color(0xFFF2C94C)
+
+
+//theme colors
 val primaryLight = Color(0xFF4E5C92)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFDCE1FF)
@@ -17,9 +40,11 @@ val errorLight = Color(0xFFBA1A1A)
 val onErrorLight = Color(0xFFFFFFFF)
 val errorContainerLight = Color(0xFFFFDAD6)
 val onErrorContainerLight = Color(0xFF410002)
-val backgroundLight = Color(0xFFFAF8FF)
+//val backgroundLight = Color(0xFFFAF8FF)
+val backgroundLight = BlackSmoke
 val onBackgroundLight = Color(0xFF1A1B21)
-val surfaceLight = Color(0xFFFAF8FF)
+//val surfaceLight = Color(0xFFFAF8FF)
+val surfaceLight = BlackerSmoke
 val onSurfaceLight = Color(0xFF1A1B21)
 val surfaceVariantLight = Color(0xFFE2E1EC)
 val onSurfaceVariantLight = Color(0xFF45464F)
@@ -218,25 +243,7 @@ val surfaceContainerHighDarkHighContrast = Color(0xFF292A2F)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF34343A)
 
 
-val Black = Color(0xFF000000)
-val BlackSmoke = Color(0xFF1F1F1F)
-val BlackerSmoke = Color(0xFF181818)
 
-val DarkGray = Color(0xFF444444)
-val Gray = Color(0xFF888888)
-val LightGray = Color(0xFFCCCCCC)
-val White = Color(0xFFFFFFFF)
-val Red = Color(0xFFFF0000)
-val Green = Color(0xFF00FF00)
-val Green2 = Color(0xFF008000)
-val Blue = Color(0xFF0000FF)
-val Yellow = Color(0xFFFFFF00)
-val Cyan = Color(0xFF00FFFF)
-val Magenta = Color(0xFFFF00FF)
-val Transparent = Color(0x00000000)
-
-val OrangeMystic = Color(0xFFEE9361)
-val YellowGold = Color(0xFFF2C94C)
 
 
 

@@ -17,6 +17,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,11 +29,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
-import dev.rarmijo.horoscopefun.ui.theme.BlackSmoke
-import dev.rarmijo.horoscopefun.ui.theme.BlackerSmoke
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
-import dev.rarmijo.horoscopefun.ui.theme.Red
-import dev.rarmijo.horoscopefun.ui.theme.White
+
 
 @Composable
 fun HoroscopeScreen(
@@ -43,11 +41,10 @@ fun HoroscopeScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(BlackSmoke)
     ) {
         if (state.isLoading) {
             CircularProgressIndicator(
-                color = Red,
+                color = OrangeMystic,
                 modifier = Modifier.align(Alignment.Center)
             )
         } else {
@@ -74,19 +71,18 @@ fun HoroscopeItem(
             .clickable { navToDetail(info) }
             .padding(16.dp),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(width = 1.dp, color = OrangeMystic)
+        border = BorderStroke(width = 1.dp, color = OrangeMystic),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .background(BlackerSmoke)
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
             Text(
-                text = name, style = MaterialTheme.typography.titleLarge,
-                color = OrangeMystic
+                text = name, style = MaterialTheme.typography.titleLarge
             )
             Spacer(modifier = Modifier.height(16.dp))
             Image(

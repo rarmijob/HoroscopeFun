@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import dev.rarmijo.horoscopefun.ui.theme.BlackSmoke
 import dev.rarmijo.horoscopefun.ui.theme.BlackerSmoke
 import dev.rarmijo.horoscopefun.ui.theme.Gray
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
@@ -32,9 +33,7 @@ fun BottomNavBar(
     )
 
 
-    NavigationBar(
-        containerColor = BlackerSmoke
-    ) {
+    NavigationBar{
         bottomNavItems.forEach {
             val title = stringResource(it.title)
             NavigationBarItem(
@@ -82,8 +81,10 @@ fun BottomNavBar(
                     unselectedTextColor = White,
                     disabledIconColor = Gray,
                     disabledTextColor = Gray,
-                    selectedIndicatorColor = Transparent,
+                    selectedIndicatorColor = BlackSmoke,
                 )
+
+                //colors = NavigationBarItemDefaults.colors()
             )
         }
 

@@ -60,36 +60,41 @@
     <string name="luck_30">"A surprising twist of fate will bring unexpected blessings."</string>
 
 
-    <string name="fool">fool</string>
-    <string name="moon">moon</string>
-    <string name="hermit">hermit</string>
-    <string name="star">star</string>
-    <string name="sun">sun</string>
-    <string name="sword">sword</string>
-    <string name="chariot">chariot</string>
-    <string name="death">death</string>
-    <string name="devil">devil</string>
-    <string name="empress">empress</string>
-    <string name="hierophant">hierophant</string>
-    <string name="ace_pentacles">ace_pentacles</string>
-    <string name="judgement">judgement</string>
-    <string name="world">world</string>
-    <string name="wheel_fortune">wheel_fortune</string>
-    <string name="tower">tower</string>
-    <string name="temperance">temperance</string>
-    <string name="strength">strength</string>
-    <string name="queen_wands">queen_wands</string>
-    <string name="queen_swords">queen_swords</string>
-    <string name="priestess">priestess</string>
-    <string name="nine_wands">nine_wands</string>
-    <string name="page_wands">page_wands</string>
-    <string name="magician">magician</string>
-    <string name="two_pentacles">two_pentacles</string>
-    <string name="queen_pentacles">queen_pentacles</string>
-    <string name="justice">justice</string>
-    <string name="king_swords">king_swords</string>
-    <string name="king_wands">king_wands</string>
-    <string name="king_cups">king_cups</string>
-    <string name="king_pentacles">king_pentacles</string>
+    <string name="fool">The Fool</string>
+    <string name="moon">The Moon</string>
+    <string name="hermit">The Hermit</string>
+    <string name="star">The Star</string>
+    <string name="sun">The Sun</string>
+    <string name="sword">The Sword</string>
+    <string name="chariot">The Chariot</string>
+    <string name="death">Death</string>
+    <string name="devil">The Devil</string>
+    <string name="empress">The Empress</string>
+    <string name="hierophant">The Hierophant</string>
+    <string name="ace_pentacles">Ace of Pentacles</string>
+    <string name="judgement">The Judgement</string>
+    <string name="world">The World</string>
+    <string name="wheel_fortune">The Wheel of Fortune</string>
+    <string name="tower">The Tower</string>
+    <string name="temperance">The Temperance</string>
+    <string name="strength">Strength</string>
+    <string name="queen_wands">Queen of Wands</string>
+    <string name="queen_swords">Queen of Swords</string>
+    <string name="priestess">The Priestess</string>
+    <string name="nine_wands">Nine of Wands</string>
+    <string name="page_wands">Page of Wands</string>
+    <string name="magician">The Magician</string>
+    <string name="two_pentacles">Two of Pentacles</string>
+    <string name="queen_pentacles">Queen of Pentacles</string>
+    <string name="justice">Justice</string>
+    <string name="king_swords">King of Swords</string>
+    <string name="king_wands">King of Wands</string>
+    <string name="king_cups">King of Cups</string>
+    <string name="king_pentacles">King of Pentacles</string>
+
+<!--    roulette-->
+
+    <string name="drag_spin">Drag to Spin!</string>
+
 
 </resources>

@@ -92,12 +92,27 @@ dependencies {
     //retrofit moshi converter
     implementation(libs.squareup.retrofit2.converter.moshi)
 
-
-
     //moshi kotlin
     //implementation(libs.squareup.moshi.kotlin)
     //moshi codegen
     kapt(libs.squareup.moshi.kotlin.codegen)
+
+
+
+    //camera
+    implementation (libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    // If you want to additionally use the CameraX Lifecycle library
+    implementation(libs.androidx.camera.lifecycle)
+    // If you want to additionally use the CameraX VideoCapture library
+    implementation(libs.androidx.camera.video)
+    // If you want to additionally use the CameraX View class
+    implementation(libs.androidx.camera.view)
+    // If you want to additionally use the CameraX Extensions library
+    implementation(libs.androidx.camera.extensions)
+
+    implementation(libs.accompanist.permissions)
+
 }
 
 kapt {

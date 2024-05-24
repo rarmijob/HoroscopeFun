@@ -1,8 +1,10 @@
 package dev.rarmijo.horoscopefun.presentation.screens.luck_screen
 
+import android.content.Intent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -28,7 +30,6 @@ class LuckViewModel@Inject constructor(
             cardDescription = card?.text ?: 0,
             cardImage = card?.image ?: 0,
         )
-
     }
 
 }

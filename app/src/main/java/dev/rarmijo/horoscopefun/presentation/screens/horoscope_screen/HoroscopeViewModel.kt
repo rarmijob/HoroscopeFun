@@ -22,7 +22,7 @@ class HoroscopeViewModel @Inject constructor(
     init {
         state = state.copy(isLoading = true)
         viewModelScope.launch {
-            delay(2000)
+            delay(500)
             loadHoroscope()
         }
     }
