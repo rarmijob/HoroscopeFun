@@ -1,0 +1,32 @@
+# HoroscopeFun
+
+HoroscopeFun is a demonstrative project designed for entertainment purposes. It showcases several features:
+
+1. **Horoscope Screen**:
+   - Users can **select their zodiac sign** and discover their **daily prediction**.
+   - ![pic1_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/26d8a450-ec9e-48e6-9c24-965ce767fcef)
+   - ![pic2_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/b77ed235-466f-48d7-a658-f4b9b488dbbf)
+
+2. **Luck Screen**:
+   - On the luck screen, users can **spin the roulette** and receive a **fortune card**.
+   - This card might contain a mysterious message.
+   - ![pic3_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/1cfe6bcb-1221-4ab2-abec-0502ddd8a03a)
+   - ![pic4_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/5dae0a42-f41e-4faa-9023-572a01a049f8)
+
+3. **Palmistry Screen**:
+   - The palmistry screen utilizes the **device's camera**.
+   - A silhouette will guide users to **read the lines on their palm**.
+   - It can provide insights into personality traits, love, health, or destiny based on the lines present in the user's hand.
+   - ![pic5_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/c023c6fd-1c99-459a-be16-fcef451f65d8)
+
+## Technologies Used
+
+- **Kotlin**: The primary programming language.
+- **Jetpack Compose**: Used for building the user interface.
+
+## Credits
+
+- **Idea Inspiration and Resources**: The idea for this project was inspired by the repository [arisdev](https://github.com/ArisGuimera/Android-Expert-Intermedio).
+- **Result Handling Approach**: The approach for handling results was influenced by [philipplackner](https://github.com/philipplackner/CleanErrorHandling).
+
+Feel free to explore the code, contribute, and have fun with HoroscopeFun!
