@@ -1,23 +1,29 @@
 # HoroscopeFun
 
-HoroscopeFun is a demonstrative project designed for entertainment purposes. It showcases several features:
+HoroscopeFun is a demonstrative project designed for entertainment purposes. On this app you can find three sections:
 
 1. **Horoscope Screen**:
    - Users can **select their zodiac sign** and discover their **daily prediction**.
-![pic1_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/26d8a450-ec9e-48e6-9c24-965ce767fcef){width = 30%}
-![pic2_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/b77ed235-466f-48d7-a658-f4b9b488dbbf){width = 30%}
+     
+     <img src="https://github.com/rarmijob/HoroscopeFun/assets/169469943/26d8a450-ec9e-48e6-9c24-965ce767fcef" alt="pic1_horoscope" width="30%"/>
+     <img src="https://github.com/rarmijob/HoroscopeFun/assets/169469943/b77ed235-466f-48d7-a658-f4b9b488dbbf" alt="pic2_horoscope" width="30%"/>
 
 2. **Luck Screen**:
+
    - On the luck screen, users can **spin the roulette** and receive a **fortune card**.
-   - This card might contain a mysterious message.
-![pic3_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/1cfe6bcb-1221-4ab2-abec-0502ddd8a03a){width = 30%}
-![pic4_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/5dae0a42-f41e-4faa-9023-572a01a049f8){width = 30%}
+   - This card contain a mysterious message.
+     
+     <img src="https://github.com/rarmijob/HoroscopeFun/assets/169469943/1cfe6bcb-1221-4ab2-abec-0502ddd8a03a" alt="pic3_horoscope" width="30%"/>
+     <img src="https://github.com/rarmijob/HoroscopeFun/assets/169469943/5dae0a42-f41e-4faa-9023-572a01a049f8" alt="pic4_horoscope" width="30%"/>
+
 
 3. **Palmistry Screen**:
    - The palmistry screen utilizes the **device's camera**.
    - A silhouette will guide users to **read the lines on their palm**.
    - It can provide insights into personality traits, love, health, or destiny based on the lines present in the user's hand.
-![pic5_horoscope](https://github.com/rarmijob/HoroscopeFun/assets/169469943/c023c6fd-1c99-459a-be16-fcef451f65d8){width = 30%}
+     
+     <img src="https://github.com/rarmijob/HoroscopeFun/assets/169469943/c023c6fd-1c99-459a-be16-fcef451f65d8" alt="pic3_horoscope" width="30%"/>
+
 
 ## Technologies Used
 
@@ -26,7 +32,7 @@ HoroscopeFun is a demonstrative project designed for entertainment purposes. It 
 
 ## Credits
 
-- **Idea Inspiration and Resources**: The idea for this project was inspired by the repository [ArisGuimera/Android-Expert-Intermedio](https://github.com/ArisGuimera/Android-Expert-Intermedio).
+- **Idea Inspiration and Resources**: The idea for this project was take from the repository [ArisGuimera/Android-Expert-Intermedio](https://github.com/ArisGuimera/Android-Expert-Intermedio).
 - **Result Handling Approach**: The approach for handling results was influenced by [philipplackner/CleanErrorHandling](https://github.com/philipplackner/CleanErrorHandling).
 
 Feel free to explore the code, contribute, and have fun with HoroscopeFun!
