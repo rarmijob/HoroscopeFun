@@ -1,6 +1,7 @@
 # HoroscopeFun
 
-HoroscopeFun is a demonstrative project designed for entertainment purposes. On this app you can find three sections:
+HoroscopeFun is a demonstrative project designed for entertainment purposes. The original idea is from ArisGuimera but this version was made with Jetpack Compose.
+On this app you can find three sections:
 
 1. **Horoscope Screen**:
    - Users can **select their zodiac sign** and discover their **daily prediction**.
@@ -32,7 +33,7 @@ HoroscopeFun is a demonstrative project designed for entertainment purposes. On 
 
 ## Credits
 
-- **Idea Inspiration and Resources**: The idea for this project was take from the repository [ArisGuimera/Android-Expert-Intermedio](https://github.com/ArisGuimera/Android-Expert-Intermedio).
+- **Idea Inspiration and Resources**: The idea for this project was taken from the repository [ArisGuimera/Android-Expert-Intermedio](https://github.com/ArisGuimera/Android-Expert-Intermedio).
 - **Result Handling Approach**: The approach for handling results was influenced by [philipplackner/CleanErrorHandling](https://github.com/philipplackner/CleanErrorHandling).
 
 Feel free to explore the code, contribute, and have fun with HoroscopeFun!
