@@ -98,6 +98,9 @@ dependencies {
     kapt(libs.squareup.moshi.kotlin.codegen)
 
 
+    //logging interceptor
+    implementation(libs.okhttp3.logging.interceptor)
+
 
     //camera
     implementation (libs.androidx.camera.core)
@@ -111,6 +114,8 @@ dependencies {
     // If you want to additionally use the CameraX Extensions library
     implementation(libs.androidx.camera.extensions)
 
+
+    //library to handle permissions
     implementation(libs.accompanist.permissions)
 
 }

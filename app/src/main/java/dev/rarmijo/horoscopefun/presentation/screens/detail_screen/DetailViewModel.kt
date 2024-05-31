@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeSign
+import dev.rarmijo.horoscopefun.domain.result.DataError
 import dev.rarmijo.horoscopefun.domain.result.Result
 import dev.rarmijo.horoscopefun.domain.usecases.GetPredictionUseCase
 import kotlinx.coroutines.launch
@@ -42,33 +43,32 @@ class DetailViewModel @Inject constructor(
             if (signName != null) {
                 when (val prediction = getPredictionUseCase(signName)) {
                     is Result.Error -> {
+
+
+                        val errorMsg = when (prediction.error) {
+                            DataError.Network.BadRequest -> "BadRequest"
+                            DataError.Network.Unauthorized -> "Unauthorized"
+                            DataError.Network.Forbidden -> "Forbidden"
+                            DataError.Network.NotFound -> "NotFound"
+                            DataError.Network.RequestTimeout -> "RequestTimeout"
+                            DataError.Network.TooManyRequests -> "TooManyRequests"
+                            DataError.Network.NoInternet -> "NoInternet"
+                            DataError.Network.PayloadTooLarge -> "PayloadTooLarge"
+                            DataError.Network.ServerError -> "ServerError"
+                            DataError.Network.Serialization -> "Serialization"
+                            DataError.Network.BadGateway -> "BadGateway"
+                            DataError.Network.ServiceUnavailable -> "ServiceUnavailable"
+                            DataError.Network.GatewayTimeout -> "GatewayTimeout"
+                            DataError.Network.Unknown -> "Unknown"
+                        }
+
                         state = state.copy(
                             isLoading = false,
                             showError = true,
-                            errorMsg = prediction.error.toString()
+                            errorMsg = errorMsg
                         )
-                        /*
-                        when (prediction.error) {
-                            DataError.Network.BadRequest -> TODO()
-                            DataError.Network.Unauthorized -> TODO()
-                            DataError.Network.Forbidden -> TODO()
-                            DataError.Network.NotFound -> TODO()
-                            DataError.Network.RequestTimeout -> TODO()
-                            DataError.Network.TooManyRequests -> TODO()
-                            DataError.Network.NoInternet -> TODO()
-                            DataError.Network.PayloadTooLarge -> TODO()
-                            DataError.Network.ServerError -> TODO()
-                            DataError.Network.Serialization -> TODO()
-                            DataError.Network.BadGateway -> TODO()
-                            DataError.Network.ServiceUnavailable -> TODO()
-                            DataError.Network.GatewayTimeout -> TODO()
-                            DataError.Network.Unknown -> TODO()
-                        }
-                        */
 
-
-
-                        Log.e("DetailViewModel", "getPrediction: ${prediction.error}")
+                        //Log.e("DetailViewModel", "getPrediction: $errorMsg")
 
                     }
 

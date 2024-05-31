@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Error
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -23,12 +25,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.rarmijo.horoscopefun.R
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
 
@@ -48,10 +52,53 @@ fun DetailScreen(
             CircularProgressIndicator(color = OrangeMystic)
         } else if (state.showError) {
 
-            Text(
-                text = state.errorMsg,
-                style = MaterialTheme.typography.titleLarge,
-            )
+            Column(
+                modifier = modifier.fillMaxWidth(0.7f),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                Icon(
+                    imageVector = Icons.Default.Error,
+                    contentDescription = "error icon",
+                    tint = OrangeMystic,
+                    modifier = modifier
+                        .scale(1.5f)
+                )
+                Spacer(modifier = modifier.height(16.dp))
+                Text(
+                    text = stringResource(id = R.string.error_detected),
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = modifier.height(16.dp))
+
+                Text(
+                    text = stringResource(id = R.string.error_code_indicator) + " " + state.errorMsg,
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = modifier.height(16.dp))
+
+                Text(
+                    text = stringResource(id = R.string.try_again),
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = modifier.height(16.dp))
+                Button(
+                    onClick = navBack,
+//                    colors = ButtonDefaults.buttonColors(
+//                        containerColor = OrangeMystic,
+//                        contentColor = White
+//                    )
+                ) {
+                    Text(text = "Go Back")
+                }
+
+            }
+
+
         } else {
 
             LazyColumn(
@@ -124,7 +171,9 @@ private fun DetailScreenPreview(@PreviewParameter(LoremIpsum::class) description
             title = "Gemini",
             horoscopeInfo = HoroscopeInfo.Gemini,
             //first 100 words
-            description = description.take(500)
+            description = description.take(500),
+            showError = true,
+            errorMsg = "NoInternet"
         ),
         navBack = {}
     )

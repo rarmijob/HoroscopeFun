@@ -7,6 +7,8 @@ import dev.rarmijo.horoscopefun.domain.repository.PredictionRepo
 import dev.rarmijo.horoscopefun.domain.result.DataError
 import dev.rarmijo.horoscopefun.domain.result.Result
 import retrofit2.HttpException
+import java.io.IOException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class PredictionRepoImpl @Inject constructor(private val predictionApi: PredictionApi) :
@@ -46,8 +48,8 @@ class PredictionRepoImpl @Inject constructor(private val predictionApi: Predicti
                     Result.Error(DataError.Network.Unknown)
                 }
             }
-
-
+        } catch (e: IOException) {
+            Result.Error(DataError.Network.NoInternet)
         }
 
 }

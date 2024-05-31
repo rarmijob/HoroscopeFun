@@ -22,6 +22,11 @@
     <string name="luckItemNav">Luck</string>
     <string name="palmistryItemNav">Palmistry</string>
 
+    <!--    Detail-->
+    <string name="error_detected">A connection error has occurred.</string>
+    <string name="error_code_indicator">Error code: </string>
+    <string name="try_again">Please try again later.</string>
+
 
 
     <!--    Luck-->
