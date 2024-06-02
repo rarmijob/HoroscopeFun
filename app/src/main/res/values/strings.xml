@@ -24,7 +24,7 @@
 
     <!--    Detail-->
     <string name="error_detected">A connection error has occurred.</string>
-    <string name="error_code_indicator">Error code: </string>
+    <string name="error_indicator">Error : </string>
     <string name="try_again">Please try again later.</string>
 
 
@@ -98,8 +98,23 @@
     <string name="king_pentacles">King of Pentacles</string>
 
 <!--    roulette-->
-
     <string name="drag_spin">Drag to Spin!</string>
+    <string name="permision_denied">Permission denied. Please enable camera permission in the app settings.</string>
+    <string name="please_grant_permission">Camera permission is needed to use this feature. Please grant the permission.</string>
+    <string name="bad_request">Bad Request</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="forbidden">Forbidden</string>
+    <string name="not_found">Not Found</string>
+    <string name="request_timeout">Request Timeout</string>
+    <string name="too_many_requests">Too Many Requests</string>
+    <string name="no_internet">No Internet</string>
+    <string name="payload_too_large">Payload Too Large</string>
+    <string name="server_error">Server Error</string>
+    <string name="serialization">Serialization</string>
+    <string name="badgateway">BadGateway</string>
+    <string name="service_unavailable">Service Unavailable</string>
+    <string name="gateway_timeout">Gateway Timeout</string>
+    <string name="unknown">Unknown</string>
 
 
 </resources>

@@ -43,33 +43,11 @@ class DetailViewModel @Inject constructor(
             if (signName != null) {
                 when (val prediction = getPredictionUseCase(signName)) {
                     is Result.Error -> {
-
-
-                        val errorMsg = when (prediction.error) {
-                            DataError.Network.BadRequest -> "BadRequest"
-                            DataError.Network.Unauthorized -> "Unauthorized"
-                            DataError.Network.Forbidden -> "Forbidden"
-                            DataError.Network.NotFound -> "NotFound"
-                            DataError.Network.RequestTimeout -> "RequestTimeout"
-                            DataError.Network.TooManyRequests -> "TooManyRequests"
-                            DataError.Network.NoInternet -> "NoInternet"
-                            DataError.Network.PayloadTooLarge -> "PayloadTooLarge"
-                            DataError.Network.ServerError -> "ServerError"
-                            DataError.Network.Serialization -> "Serialization"
-                            DataError.Network.BadGateway -> "BadGateway"
-                            DataError.Network.ServiceUnavailable -> "ServiceUnavailable"
-                            DataError.Network.GatewayTimeout -> "GatewayTimeout"
-                            DataError.Network.Unknown -> "Unknown"
-                        }
-
                         state = state.copy(
                             isLoading = false,
                             showError = true,
-                            errorMsg = errorMsg
+                            error = prediction.error
                         )
-
-                        //Log.e("DetailViewModel", "getPrediction: $errorMsg")
-
                     }
 
                     is Result.Success -> {

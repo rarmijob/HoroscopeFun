@@ -1,8 +1,11 @@
 package dev.rarmijo.horoscopefun.presentation.navigation
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandIn
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -54,9 +57,8 @@ fun Navigation(modifier: Modifier = Modifier) {
         topBar = {
             AnimatedVisibility(
                 visible = showTopBar,
-                //default values are better, add a transition to the second content too
-                //enter = fadeIn(),
-                //exit = fadeOut()
+                enter = fadeIn() + expandIn(),
+                exit = shrinkOut() + fadeOut()
             ) {
                 TopAppBar(
                     title = {
@@ -81,8 +83,8 @@ fun Navigation(modifier: Modifier = Modifier) {
         bottomBar = {
             AnimatedVisibility(
                 visible = showBottomBar,
-//                enter = fadeIn(),
-//                exit = fadeOut()
+                enter = fadeIn() + expandIn(),
+                exit = shrinkOut() + fadeOut()
             ) {
 
                 val currentRoute = navBackStackEntry?.destination?.route

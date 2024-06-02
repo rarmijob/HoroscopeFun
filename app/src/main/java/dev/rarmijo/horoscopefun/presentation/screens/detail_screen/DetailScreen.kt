@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.Button
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.rarmijo.horoscopefun.R
 import dev.rarmijo.horoscopefun.domain.models.HoroscopeInfo
+import dev.rarmijo.horoscopefun.domain.result.DataError
 import dev.rarmijo.horoscopefun.ui.theme.OrangeMystic
 
 
@@ -51,6 +53,24 @@ fun DetailScreen(
         if (state.isLoading) {
             CircularProgressIndicator(color = OrangeMystic)
         } else if (state.showError) {
+
+            val errorMsg = when (state.error) {
+                DataError.Network.BadRequest -> stringResource(R.string.bad_request)
+                DataError.Network.Unauthorized -> stringResource(R.string.unauthorized)
+                DataError.Network.Forbidden -> stringResource(R.string.forbidden)
+                DataError.Network.NotFound -> stringResource(R.string.not_found)
+                DataError.Network.RequestTimeout -> stringResource(R.string.request_timeout)
+                DataError.Network.TooManyRequests -> stringResource(R.string.too_many_requests)
+                DataError.Network.NoInternet -> stringResource(R.string.no_internet)
+                DataError.Network.PayloadTooLarge -> stringResource(R.string.payload_too_large)
+                DataError.Network.ServerError -> stringResource(R.string.server_error)
+                DataError.Network.Serialization -> stringResource(R.string.serialization)
+                DataError.Network.BadGateway -> stringResource(R.string.badgateway)
+                DataError.Network.ServiceUnavailable -> stringResource(R.string.service_unavailable)
+                DataError.Network.GatewayTimeout -> stringResource(R.string.gateway_timeout)
+                DataError.Network.Unknown -> stringResource(R.string.unknown)
+                else -> stringResource(R.string.unknown)
+            }
 
             Column(
                 modifier = modifier.fillMaxWidth(0.7f),
@@ -73,7 +93,7 @@ fun DetailScreen(
                 Spacer(modifier = modifier.height(16.dp))
 
                 Text(
-                    text = stringResource(id = R.string.error_code_indicator) + " " + state.errorMsg,
+                    text = stringResource(id = R.string.error_indicator) + " " + errorMsg,
                     style = MaterialTheme.typography.titleLarge,
                     textAlign = TextAlign.Center
                 )
@@ -114,7 +134,7 @@ fun DetailScreen(
 
                         Box(modifier = modifier.fillMaxWidth()) {
                             Icon(
-                                imageVector = Icons.Default.ArrowBack,
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "back",
                                 tint = OrangeMystic,
                                 modifier = modifier
@@ -173,7 +193,7 @@ private fun DetailScreenPreview(@PreviewParameter(LoremIpsum::class) description
             //first 100 words
             description = description.take(500),
             showError = false,
-            errorMsg = "NoInternet"
+            error = DataError.Network.NoInternet
         ),
         navBack = {}
     )

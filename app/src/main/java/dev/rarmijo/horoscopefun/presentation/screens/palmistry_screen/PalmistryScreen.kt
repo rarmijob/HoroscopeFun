@@ -7,6 +7,7 @@ import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,10 +18,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.google.accompanist.permissions.shouldShowRationale
 import dev.rarmijo.horoscopefun.R
 
 
@@ -28,8 +31,8 @@ import dev.rarmijo.horoscopefun.R
 @Composable
 fun PalmistryScreen(modifier: Modifier = Modifier) {
     val applicationContext = LocalContext.current.applicationContext
-    val alreadyAnswered = remember { mutableStateOf(false)}
-    val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA){
+    val alreadyAnswered = remember { mutableStateOf(false) }
+    val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA) {
         alreadyAnswered.value = true
     }
 
@@ -37,7 +40,6 @@ fun PalmistryScreen(modifier: Modifier = Modifier) {
     LaunchedEffect(cameraPermissionState.status) {
         if (cameraPermissionState.status.isGranted.not()) {
             cameraPermissionState.launchPermissionRequest()
-
         }
     }
 
@@ -46,18 +48,13 @@ fun PalmistryScreen(modifier: Modifier = Modifier) {
             cameraPermissionState.status.isGranted -> {
                 CameraContent(applicationContext)
             }
+            alreadyAnswered.value -> {
+                PermissionMessage(modifier.align(Alignment.TopCenter),
+                    stringResource(R.string.permision_denied))
+            }
             else -> {
-                if(alreadyAnswered.value) {
-                    Text(
-                        text = "Permission denied. Please enable camera permission in the app settings.",
-                        style = MaterialTheme.typography.displayMedium
-                    )
-                } else {
-                    Text(
-                        text = "Camera permission is needed to use this feature. Please grant the permission.",
-                        style = MaterialTheme.typography.displayMedium
-                    )
-                }
+               PermissionMessage(modifier.align(Alignment.TopCenter),
+                   stringResource(R.string.please_grant_permission))
             }
         }
     }
@@ -80,6 +77,22 @@ fun CameraContent(context: Context) {
             painter = painterResource(id = R.drawable.palmistry),
             contentDescription = "palmistry",
             modifier = Modifier.fillMaxSize()
+        )
+    }
+}
+
+
+@Composable
+fun PermissionMessage(modifier: Modifier, message: String) {
+    Box(
+        modifier = modifier
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = message,
+            style = MaterialTheme.typography.displaySmall,
+            textAlign = TextAlign.Center
         )
     }
 }
