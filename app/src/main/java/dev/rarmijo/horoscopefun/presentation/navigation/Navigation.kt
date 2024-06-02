@@ -1,17 +1,12 @@
 package dev.rarmijo.horoscopefun.presentation.navigation
 
-import android.content.Context
-import android.content.Intent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
-
 import androidx.compose.foundation.layout.fillMaxWidth
-
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -23,7 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -60,8 +54,9 @@ fun Navigation(modifier: Modifier = Modifier) {
         topBar = {
             AnimatedVisibility(
                 visible = showTopBar,
-                enter = fadeIn(),
-                exit = fadeOut()
+                //default values are better, add a transition to the second content too
+                //enter = fadeIn(),
+                //exit = fadeOut()
             ) {
                 TopAppBar(
                     title = {
@@ -86,8 +81,8 @@ fun Navigation(modifier: Modifier = Modifier) {
         bottomBar = {
             AnimatedVisibility(
                 visible = showBottomBar,
-                enter = fadeIn(),
-                exit = fadeOut()
+//                enter = fadeIn(),
+//                exit = fadeOut()
             ) {
 
                 val currentRoute = navBackStackEntry?.destination?.route

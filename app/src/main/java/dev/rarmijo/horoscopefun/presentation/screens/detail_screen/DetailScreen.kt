@@ -104,7 +104,7 @@ fun DetailScreen(
             LazyColumn(
                 modifier = modifier
                     .fillMaxSize(),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
+                verticalArrangement = Arrangement.SpaceAround,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
@@ -172,7 +172,7 @@ private fun DetailScreenPreview(@PreviewParameter(LoremIpsum::class) description
             horoscopeInfo = HoroscopeInfo.Gemini,
             //first 100 words
             description = description.take(500),
-            showError = true,
+            showError = false,
             errorMsg = "NoInternet"
         ),
         navBack = {}

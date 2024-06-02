@@ -43,66 +43,66 @@ fun LuckScreen(
 
     val context = LocalContext.current
 
-        Column(
-            modifier = modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.SpaceAround,
-            horizontalAlignment = Alignment.CenterHorizontally
+    Column(
+        modifier = modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceAround,
+        horizontalAlignment = Alignment.CenterHorizontally
 
-        ) {
+    ) {
 
-            Row {
-                Box(modifier = modifier.fillMaxWidth()) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = "back",
-                        tint = OrangeMystic,
-                        modifier = modifier
-                            .align(Alignment.TopStart)
-                            .padding(16.dp)
-                            .scale(1.5f)
-                            .clickable { navBack() }
+        Row {
+            Box(modifier = modifier.fillMaxWidth()) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "back",
+                    tint = OrangeMystic,
+                    modifier = modifier
+                        .align(Alignment.TopStart)
+                        .padding(16.dp)
+                        .scale(1.5f)
+                        .clickable { navBack() }
+                )
+                if (state.cardTitle != 0) {
+                    Text(
+                        text = stringResource(id = state.cardTitle),
+                        style = MaterialTheme.typography.headlineMedium,
+                        modifier = modifier.align(Alignment.Center)
                     )
-                    if (state.cardTitle != 0) {
-                        Text(
-                            text = stringResource(id = state.cardTitle),
-                            style = MaterialTheme.typography.headlineMedium,
-                            modifier = modifier.align(Alignment.Center)
-                        )
-                    }
                 }
             }
+        }
 
-            //TODO improve size of image
-            if (state.cardImage != 0) {
-                Image(
-                    painter = painterResource(id = state.cardImage),
-                    contentDescription = "card back small",
-                    modifier = modifier.size(300.dp, 500.dp),
+        //TODO improve size of image
+        if (state.cardImage != 0) {
+            Image(
+                painter = painterResource(id = state.cardImage),
+                contentDescription = "card back small",
+                modifier = modifier.size(300.dp, 500.dp),
+            )
+        }
+
+        if (state.cardDescription != 0) {
+            val description = stringResource(id = state.cardDescription)
+            Box(modifier = modifier.padding(16.dp), contentAlignment = Alignment.Center) {
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontSize = 24.sp,
+                    textAlign = TextAlign.Center
                 )
             }
 
-            if (state.cardDescription != 0) {
-                val description = stringResource(id = state.cardDescription)
-                Box(modifier = modifier.padding(16.dp), contentAlignment = Alignment.Center) {
-                    Text(
-                        text = description,
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontSize = 24.sp,
-                        textAlign = TextAlign.Center
-                    )
-                }
-
-                Button(
-                    onClick = { sharePrediction(context, description) },
-                    colors = ButtonDefaults.buttonColors(containerColor = BlackerSmoke),
-                ) {
-                    Text(text = stringResource(id = R.string.share))
-                }
+            Button(
+                onClick = { sharePrediction(context, description) },
+                colors = ButtonDefaults.buttonColors(containerColor = BlackerSmoke),
+            ) {
+                Text(text = stringResource(id = R.string.share))
             }
-
-
         }
+
+
+    }
 
 }
 
